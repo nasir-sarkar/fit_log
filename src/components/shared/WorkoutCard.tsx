@@ -25,7 +25,7 @@ const WorkoutCard = ({ workout }: IWorkoutCardProps) => {
           width={740}
           height={400}
           unoptimized
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover object-[center_20%] transition duration-500 group-hover:scale-105"
         />
       </div>
 
