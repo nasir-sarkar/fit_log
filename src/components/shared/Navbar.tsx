@@ -77,7 +77,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/my-plan"
+            href="/my-plan?tab=saved"
             className="flex items-center gap-2 text-xs font-medium text-[#9ca3af] transition-colors hover:text-white"
           >
             Saved

@@ -4,7 +4,8 @@ import { ChevronDownIcon } from "@/components/shared/Icons";
 import { WorkoutsContext } from "@/context/WorkoutsContext";
 import { IWorkout } from "@/types/workouts.type";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
 
 
 
@@ -15,8 +16,15 @@ type TSortBy = "duration" | "calories" | "rating";
 
 const MyPlan = () => {
   const { todaysPlan, savedWorkouts, isLoading } = useContext(WorkoutsContext);
-  const [activeTab, setActiveTab] = useState<TTab>("plan");
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState<TTab>(
+    searchParams.get("tab") === "saved" ? "saved" : "plan",
+  );
   const [sortBy, setSortBy] = useState<TSortBy>("duration");
+
+  useEffect(() => {
+    setActiveTab(searchParams.get("tab") === "saved" ? "saved" : "plan");
+  }, [searchParams]);
 
   
 
